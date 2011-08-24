@@ -10,8 +10,7 @@
 #import "ParticlesViewController.h"
 
 @implementation ParametersViewController
-@synthesize slider;
-@synthesize pc;
+@synthesize particleViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,36 +22,10 @@
 }
 
 
-- (IBAction)sliderChanged:(id)sender 
+- (IBAction)sliderChanged:(UISlider *)sender 
 {
-   // [particleViewControlle
 
-   [pc parameterViewController:self handleSliderValue:[(UISlider *)sender value]];
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidUnload
-{
-    [self setSlider:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    [particleViewController handleSlider:sender fromParametersViewController:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

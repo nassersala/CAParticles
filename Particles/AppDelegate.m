@@ -25,7 +25,7 @@
     
     ParticlesViewController *particleVC = [[ParticlesViewController alloc] initWithNibName:@"ParticlesViewController" bundle:nil];
     
-    [paraVC setPc:particleVC];
+    [paraVC setParticleViewController:particleVC];
     
     UINavigationController *detail = [[UINavigationController alloc] initWithRootViewController:particleVC];
     

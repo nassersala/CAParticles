@@ -8,20 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-//#import "ParticlesViewController.h"
 @class ParticlesViewController;
 
 @interface ParametersViewController : UIViewController
-{
-    UISlider *slider;   
-}
+@property (strong, nonatomic) ParticlesViewController *particleViewController;
 
-@property (strong, nonatomic) ParticlesViewController *pc;
 
-@property (strong, nonatomic) IBOutlet UISlider *slider;
-- (IBAction)sliderChanged:(id)sender;
+- (IBAction)sliderChanged:(UISlider *)sender;
 @end
 
+
 @protocol ParametersViewControllerDelegate
-- (void)parameterViewController:(ParametersViewController *)pvc handleSliderValue:(float)sliderValue;
+- (void)handleSlider:(UISlider *)slider fromParametersViewController:(ParametersViewController *)pvc;
 @end

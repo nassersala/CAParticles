@@ -70,19 +70,6 @@
     CGPoint p = [touch locationInView:[self view]];
     [emitterContainer setEmitterPosition:p];
 }
-//- (void)update
-//{
-//    [emitterContainer setValue:
-//     [NSNumber numberWithFloat:[delegate velocityValue]] forKeyPath:@"emitterCells.particle.velocity"];
-//}
-//
-- (IBAction)sliderChanged:(id)sender 
-{
-//    [emitterContainer setValue:
-//     [NSNumber numberWithFloat:[(UISlider *)sender value]] 
-//                   forKeyPath:@"emitterCells.particle.velocity"];
-}
-
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -110,17 +97,23 @@
     return YES;
 }
 
-
-- (void)parameterViewController:(ParametersViewController *)pvc handleSliderValue:(float)sliderValue
+- (void)handleSlider:(UISlider *)slider fromParametersViewController:(ParametersViewController *)pvc
 {
-    NSLog(@"the slider value is: %f", sliderValue);
+    if ([slider tag] == 1) {
+        [emitterContainer setValue:
+         [NSNumber numberWithFloat:[slider value]] 
+                        forKeyPath:@"emitterCells.particle.velocity"];
+    } else if ([slider tag] == 2) {
+        [emitterContainer setValue:[NSNumber numberWithFloat:[slider value] * M_PI / 4] 
+                        forKeyPath:@"emitterCells.particle.emissionRange"];
+    } else if ([slider tag] == 3) {
+        [emitterContainer setValue:[NSNumber numberWithFloat: -1 * [slider value]] 
+                        forKeyPath:@"emitterCells.particle.yAcceleration"];
+    }
     
-    [emitterContainer setValue:
-     [NSNumber numberWithFloat:sliderValue] 
-                    forKeyPath:@"emitterCells.particle.velocity"];
     
-    NSLog(@"the value now is %f", [[emitterContainer valueForKeyPath:@"emitterCells.particle.velocity"] floatValue]);
+    
+    
 }
-
 
 @end
