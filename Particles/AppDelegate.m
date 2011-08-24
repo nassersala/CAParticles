@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+#import "ParticlesViewController.h"
+#import "ParametersViewController.h"
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -16,7 +19,22 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    ParametersViewController *paraVC = [[ParametersViewController alloc] initWithNibName:@"ParametersViewController" bundle:nil];
+    
+    UINavigationController *master = [[UINavigationController alloc] initWithRootViewController:paraVC];
+    
+    ParticlesViewController *particleVC = [[ParticlesViewController alloc] initWithNibName:@"ParticlesViewController" bundle:nil];
+    
+    [paraVC setPc:particleVC];
+    
+    UINavigationController *detail = [[UINavigationController alloc] initWithRootViewController:particleVC];
+    
+    UISplitViewController *sv = [[UISplitViewController alloc] init];
+    [sv setDelegate:particleVC];
+    [sv setViewControllers:[NSArray arrayWithObjects:master, detail, nil]];
+    
+    
+    [[self window] setRootViewController:sv];
     [self.window makeKeyAndVisible];
     return YES;
 }
