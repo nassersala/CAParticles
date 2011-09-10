@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E3060AA14050FC400057ABF /* tspark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3060A914050FC400057ABF /* tspark.png */; };
+		2E3060AA14050FC400057ABF /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3060A914050FC400057ABF /* image.png */; };
 		2EAFAE7D140507C8009F0116 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAFAE7C140507C8009F0116 /* UIKit.framework */; };
 		2EAFAE7F140507C8009F0116 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAFAE7E140507C8009F0116 /* Foundation.framework */; };
 		2EAFAE85140507C8009F0116 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EAFAE83140507C8009F0116 /* InfoPlist.strings */; };
@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E3060A914050FC400057ABF /* tspark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tspark.png; sourceTree = "<group>"; };
+		2E3060A914050FC400057ABF /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		2EAFAE78140507C8009F0116 /* Particles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Particles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EAFAE7C140507C8009F0116 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2EAFAE7E140507C8009F0116 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -84,7 +84,7 @@
 		2EAFAE80140507C8009F0116 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
-				2E3060A914050FC400057ABF /* tspark.png */,
+				2E3060A914050FC400057ABF /* image.png */,
 				2EAFAE89140507C8009F0116 /* AppDelegate.h */,
 				2EAFAE8A140507C8009F0116 /* AppDelegate.m */,
 				2EAFAE911405081C009F0116 /* ParticlesViewController.h */,
@@ -163,7 +163,7 @@
 				2EAFAE85140507C8009F0116 /* InfoPlist.strings in Resources */,
 				2EAFAE951405081C009F0116 /* ParticlesViewController.xib in Resources */,
 				2EAFAE9A1405085A009F0116 /* ParametersViewController.xib in Resources */,
-				2E3060AA14050FC400057ABF /* tspark.png in Resources */,
+				2E3060AA14050FC400057ABF /* image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

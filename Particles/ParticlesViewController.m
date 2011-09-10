@@ -26,12 +26,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
 
-    //rootLayer = [CALayer layer];
-//	[rootLayer setBounds:[[self view] bounds]];
-//    [rootLayer setPosition:CGPointMake([[self view] bounds].size.width / 2.0, [[self view] bounds].size.height / 4.0)];
-//	[rootLayer setBackgroundColor:[[UIColor blackColor] CGColor]];
-    
-    UIImage *layerImage = [UIImage imageNamed:@"tspark.png"];
+    UIImage *layerImage = [UIImage imageNamed:@"image.png"];
     CGImageRef image = [layerImage CGImage];
     
     emitterContainer = [CAEmitterLayer layer];
@@ -57,13 +52,37 @@
     
     [particle setName:@"particle"];
     
-    [emitterContainer setEmitterCells:[NSArray arrayWithObjects:particle, nil]];
-	//[rootLayer addSublayer:mortor];
-    
+    [emitterContainer setEmitterCells:[NSArray arrayWithObjects:particle, nil]];    
     [[[self view] layer] addSublayer:emitterContainer];
 
 }
 
+
+- (void)handleSlider:(UISlider *)slider fromParametersViewController:(ParametersViewController *)pvc
+{
+    if ([slider tag] == 1) {
+        [emitterContainer setValue:
+         [NSNumber numberWithFloat:[slider value]] 
+                        forKeyPath:@"emitterCells.particle.velocity"];
+    } else if ([slider tag] == 2) {
+        [emitterContainer setValue:[NSNumber numberWithFloat:[slider value] * M_PI / 4] 
+                        forKeyPath:@"emitterCells.particle.emissionRange"];
+    } else if ([slider tag] == 3) {
+        [emitterContainer setValue:[NSNumber numberWithFloat: -1 * [slider value]] 
+                        forKeyPath:@"emitterCells.particle.yAcceleration"];
+    } else if ([slider tag] == 4) {
+        [emitterContainer setValue:[NSNumber numberWithFloat:[slider value]] 
+                        forKeyPath:@"emitterCells.particle.birthRate"];
+    } else if ([slider tag] == 5) {
+        [emitterContainer setValue:[NSNumber numberWithFloat:[slider value]] 
+                        forKeyPath:@"emitterCells.particle.lifetime"];
+    }
+    
+}
+
+
+#pragma -
+#pragma touches methods
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
@@ -81,6 +100,10 @@
     [CATransaction commit];
 }
 
+
+#pragma -
+#pragma splitViewController delegate methods
+
 - (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
 {
     [barButtonItem setTitle:@"Parameter"];
@@ -97,23 +120,6 @@
     return YES;
 }
 
-- (void)handleSlider:(UISlider *)slider fromParametersViewController:(ParametersViewController *)pvc
-{
-    if ([slider tag] == 1) {
-        [emitterContainer setValue:
-         [NSNumber numberWithFloat:[slider value]] 
-                        forKeyPath:@"emitterCells.particle.velocity"];
-    } else if ([slider tag] == 2) {
-        [emitterContainer setValue:[NSNumber numberWithFloat:[slider value] * M_PI / 4] 
-                        forKeyPath:@"emitterCells.particle.emissionRange"];
-    } else if ([slider tag] == 3) {
-        [emitterContainer setValue:[NSNumber numberWithFloat: -1 * [slider value]] 
-                        forKeyPath:@"emitterCells.particle.yAcceleration"];
-    }
-    
-    
-    
-    
-}
+
 
 @end

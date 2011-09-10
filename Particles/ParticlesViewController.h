@@ -16,6 +16,4 @@
     
     CAEmitterCell *particle;
 }
-
-//- (IBAction)sliderChanged:(id)sender;
 @end
