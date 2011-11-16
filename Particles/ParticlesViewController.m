@@ -26,7 +26,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
 
-    UIImage *layerImage = [UIImage imageNamed:@"image.png"];
+    UIImage *layerImage = [UIImage imageNamed:@"image"];
     CGImageRef image = [layerImage CGImage];
     
     emitterContainer = [CAEmitterLayer layer];
@@ -81,8 +81,8 @@
 }
 
 
-#pragma -
-#pragma touches methods
+#pragma mark
+#pragma touche handling methods
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
@@ -101,7 +101,7 @@
 }
 
 
-#pragma -
+#pragma mark 
 #pragma splitViewController delegate methods
 
 - (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc

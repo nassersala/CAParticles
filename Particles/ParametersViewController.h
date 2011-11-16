@@ -11,9 +11,8 @@
 @class ParticlesViewController;
 
 @interface ParametersViewController : UIViewController
+
 @property (strong, nonatomic) ParticlesViewController *particleViewController;
-
-
 - (IBAction)sliderChanged:(UISlider *)sender;
 @end
 
